@@ -1,5 +1,11 @@
 import React from "react";
-import { assets } from "../assets/assets";
+import { FaRegLightbulb } from "react-icons/fa";
+import { PiCode } from "react-icons/pi";
+import { IoCompassOutline } from "react-icons/io5";
+import { LuPencilLine } from "react-icons/lu";
+import { TbPhotoPlus } from "react-icons/tb";
+import { BsMic } from "react-icons/bs";
+import { VscSend } from "react-icons/vsc";
 
 const MainContent = () => {
   return (
@@ -8,7 +14,7 @@ const MainContent = () => {
         <p>Gemini</p>
         <img
           className="w-[40px] rounded-[50%]"
-          src={assets.user_icon}
+          src="/src/assets/avt.jpg"
           alt="user icon"
         />
       </nav>
@@ -16,50 +22,38 @@ const MainContent = () => {
       <section className="max-w-[900px] m-auto">
         <div className="my-[50px] mx-[0px] text-5xl text-[#c4c7c5] font-medium p-[20px]">
           <p>
-            <span className="mess">Hello, Dev</span>
-            <p>How can I help ypu today?</p>
+            <span className="mess">Hello, Stranger</span>
           </p>
+          <p>How can I help you today?</p>
         </div>
         <div className="grid grid-cols-auto-fill gap-4 p-[20px]">
           <div className="h-[200px] p-[15px] bg-slate-100 rounded-[10px] relative cursor-pointer hover:bg-slate-200">
             <p className="text-[#585858] text-[17px]">
-              Suggest beautiful places to see on an upcoming road trip
+              Suggest places to visit in New York
             </p>
-            <img
-              className="w-[35px] p-[5px] absolute bg-white rounded-[20px] bottom-[10px] right-[10px]"
-              src={assets.compass_icon}
-              alt="compass icon"
-            />
+            <i className="p-[5px] absolute bg-white rounded-[20px] bottom-[10px] right-[10px]">
+              <IoCompassOutline size={22} />
+            </i>
+          </div>
+          <div className="h-[200px] p-[15px] bg-slate-100 rounded-[10px] relative cursor-pointer hover:bg-slate-200">
+            <p className="text-[#585858] text-[17px]">Explain React</p>
+            <i className="p-[5px] absolute bg-white rounded-[20px] bottom-[10px] right-[10px]">
+              <FaRegLightbulb size={20} />
+            </i>
+          </div>
+          <div className="h-[200px] p-[15px] bg-slate-100 rounded-[10px] relative cursor-pointer hover:bg-slate-200">
+            <p className="text-[#585858] text-[17px]">Write a resume</p>
+            <i className="p-[5px] absolute bg-white rounded-[20px] bottom-[10px] right-[10px]">
+              <LuPencilLine size={20} />
+            </i>
           </div>
           <div className="h-[200px] p-[15px] bg-slate-100 rounded-[10px] relative cursor-pointer hover:bg-slate-200">
             <p className="text-[#585858] text-[17px]">
-              Briefly summarize this concept: urban planing
+              Improve the following code
             </p>
-            <img
-              className="w-[35px] p-[5px] absolute bg-white rounded-[20px] bottom-[10px] right-[10px]"
-              src={assets.bulb_icon}
-              alt="bulb icon"
-            />
-          </div>
-          <div className="h-[200px] p-[15px] bg-slate-100 rounded-[10px] relative cursor-pointer hover:bg-slate-200">
-            <p className="text-[#585858] text-[17px]">
-              Brainstorm team bonding activities for our work retreat
-            </p>
-            <img
-              className="w-[35px] p-[5px] absolute bg-white rounded-[20px] bottom-[10px] right-[10px]"
-              src={assets.message_icon}
-              alt="message icon"
-            />
-          </div>
-          <div className="h-[200px] p-[15px] bg-slate-100 rounded-[10px] relative cursor-pointer hover:bg-slate-200">
-            <p className="text-[#585858] text-[17px]">
-              Improve the readability of the following code
-            </p>
-            <img
-              className="w-[35px] p-[5px] absolute bg-white rounded-[20px] bottom-[10px] right-[10px]"
-              src={assets.code_icon}
-              alt="code icon"
-            />
+            <i className="p-[5px] absolute bg-white rounded-[20px] bottom-[10px] right-[10px]">
+              <PiCode size={20} />
+            </i>
           </div>
         </div>
         <div className="absolute bottom-0 w-[100%] max-w-[900px] py-0 px-[20px] m-auto">
@@ -70,21 +64,15 @@ const MainContent = () => {
               placeholder="Enter a prompt here"
             />
             <div className="flex items-center gap-[15px]">
-              <img
-                className="w-[24px] cursor-pointer"
-                src={assets.gallery_icon}
-                alt="gallery icon"
-              />
-              <img
-                className="w-[24px] cursor-pointer"
-                src={assets.mic_icon}
-                alt="mic icon"
-              />
-              <img
-                className="w-[24px] cursor-pointer"
-                src={assets.send_icon}
-                alt="send icon"
-              />
+              <button className="cursor-pointer">
+                <TbPhotoPlus size={24} />
+              </button>
+              <button className="cursor-pointer">
+                <BsMic size={24} />
+              </button>
+              <button className="cursor-pointer">
+                <VscSend size={24} />
+              </button>
             </div>
           </div>
           <p className="text-[13px] my-[15px] mx-auto text-center font-light">

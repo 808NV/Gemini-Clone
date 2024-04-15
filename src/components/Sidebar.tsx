@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { assets } from "../assets/assets";
+import { FiMenu } from "react-icons/fi";
+import { FaPlus } from "react-icons/fa6";
+import { LuMessageSquare } from "react-icons/lu";
+import { RiQuestionLine } from "react-icons/ri";
+import { MdHistory } from "react-icons/md";
+import { FiSettings } from "react-icons/fi";
 
 const Sidebar = () => {
   const [extendBar, setExtendBar] = useState(false);
@@ -11,53 +16,47 @@ const Sidebar = () => {
   return (
     <div className="min-h-[100vh] inline-flex flex-col justify-between bg-slate-100 [f0f4f9] py-[25px] px-[15px]">
       <div>
-        <img
+        <button
           onClick={toggleBar}
           className="w-[20px] block m-[10px] cursor-pointer"
-          src={assets.menu_icon}
-          alt="menu icon"
-        />
+        >
+          <FiMenu size={20} />
+        </button>
         <div className="mt-[50px] inline-flex items-center gap-[10px] py-[10px] px-[15px] bg-[#e6eaf1] rounded-[50px] text-grey-100 cursor-pointer">
-          <img className="w-[20px]" src={assets.plus_icon} alt="plus icon" />
+          <button>
+            <FaPlus size={20} color="grey" />
+          </button>
           {extendBar ? <p>New Chat</p> : null}
         </div>
         {extendBar ? (
           <div className="flex flex-col">
             <p className="mt-[30px] mb-[20px]">Recent</p>
             <div className="flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer">
-              <img
-                className="w-[20px]"
-                src={assets.message_icon}
-                alt="message icon"
-              />
-              <p>What is react...</p>
+              <i>
+                <LuMessageSquare size={18} />
+              </i>
+              <p className="text-sm font-semibold">What is react...</p>
             </div>
           </div>
         ) : null}
       </div>
       <div className="flex flex-col">
         <div className="flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer ">
-          <img
-            className="w-[20px]"
-            src={assets.question_icon}
-            alt="question icon"
-          />
+          <button>
+            <RiQuestionLine size={22} />
+          </button>
           {extendBar ? <p>Help</p> : null}
         </div>
         <div className="flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer">
-          <img
-            className="w-[20px]"
-            src={assets.history_icon}
-            alt="history icon"
-          />
+          <button>
+            <MdHistory size={22} />
+          </button>
           {extendBar ? <p>Activity</p> : null}
         </div>
         <div className="flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer">
-          <img
-            className="w-[20px]"
-            src={assets.setting_icon}
-            alt="setting icon"
-          />
+          <button>
+            <FiSettings size={22} />
+          </button>
           {extendBar ? <p>Settings</p> : null}
         </div>
       </div>
