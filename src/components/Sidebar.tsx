@@ -22,7 +22,7 @@ const Sidebar = () => {
           {extendBar ? <p>New Chat</p> : null}
         </div>
         {extendBar ? (
-          <div className="flex flex-col ">
+          <div className="flex flex-col">
             <p className="mt-[30px] mb-[20px]">Recent</p>
             <div className="flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer">
               <img
