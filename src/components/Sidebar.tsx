@@ -52,13 +52,13 @@ const Sidebar = () => {
           {extendBar ? <p>New Chat</p> : null}
         </div>
         {extendBar ? (
-          <div className="flex flex-col">
+          <div className="fadeIn flex flex-col">
             <p className="mt-[30px] mb-[20px]">Recent</p>
-            {history.map((item: string, index: number) => {
+            {history.map((item: string) => {
               return (
                 <div
                   onClick={() => loadPrompt(item)}
-                  className="flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer"
+                  className="fadeIn flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer"
                 >
                   <i>
                     <LuMessageSquare size={18} />

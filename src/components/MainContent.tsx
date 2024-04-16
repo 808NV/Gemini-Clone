@@ -120,9 +120,13 @@ const MainContent = () => {
               <button className="cursor-pointer">
                 <BsMic size={24} />
               </button>
-              <button onClick={() => onSent()} className="cursor-pointer">
-                <VscSend size={24} />
-              </button>
+              {input ? (
+                <button onClick={() => onSent()} className="cursor-pointer">
+                  <VscSend size={24} />
+                </button>
+              ) : (
+                <></>
+              )}
             </div>
           </div>
           <p className="text-[13px] my-[15px] mx-auto text-center font-light">

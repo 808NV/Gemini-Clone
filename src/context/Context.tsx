@@ -2,7 +2,7 @@ import React, { createContext, useState } from "react";
 import runChat from "../config/gemini";
 
 type MyContext = {
-  onSent: (prompt: string) => Promise<void>;
+  onSent: () => Promise<void>;
   input: string;
   setInput: React.Dispatch<React.SetStateAction<string>>;
   output: string;
