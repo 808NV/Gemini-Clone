@@ -37,10 +37,19 @@ const ContextProvider = (props: { children: React.ReactNode }) => {
     setResultData("");
     setLoading(true);
     setShowResult(true);
-    setOutput(input);
-    setHistory((prev) => [...prev, input]);
+    let response;
+    if (prompt !== undefined) {
+      response = await runChat(prompt);
+      setOutput(prompt);
+    } else {
+      setHistory((prev) => [...prev, input]);
+      setOutput(input);
+      response = await runChat(input);
+    }
+    /*setOutput(input);*/
+    /*setHistory((prev) => [...prev, input]);*/
 
-    const response = await runChat(input);
+    /*const response = await runChat(input);*/
     const responseArray = response.split("**");
 
     let newResponse = "";

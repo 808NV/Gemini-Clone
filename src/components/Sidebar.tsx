@@ -13,7 +13,20 @@ const Sidebar = () => {
   const ctx = useContext(context);
   const onSent = ctx?.onSent ?? (() => {});
   const history = ctx?.history ?? [];
-  const setHisory = ctx?.setHistory ?? [];
+  const setHistory: React.Dispatch<React.SetStateAction<string[]>> =
+    ctx?.setHistory ?? (() => {});
+
+  const loadPrompt = async (prompt: string | string[]) => {
+    if (typeof prompt === "string") {
+      setHistory((prevHistory) => [...prevHistory]);
+      await onSent(prompt);
+    } else {
+      setHistory((prevHistory) => [...prevHistory]);
+      for (const p of prompt) {
+        await onSent(p);
+      }
+    }
+  };
 
   const toggleBar = () => {
     setExtendBar(!extendBar);
@@ -39,7 +52,10 @@ const Sidebar = () => {
             <p className="mt-[30px] mb-[20px]">Recent</p>
             {history.map((item: string, index: number) => {
               return (
-                <div className="flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer">
+                <div
+                  onClick={() => loadPrompt(item)}
+                  className="flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer"
+                >
                   <i>
                     <LuMessageSquare size={18} />
                   </i>
