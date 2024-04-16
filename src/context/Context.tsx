@@ -22,16 +22,13 @@ const ContextProvider = (props) => {
     setLoading(true);
     setShowResult(true);
     setOutput(input);
+
     const response = await runChat(input);
     const responseArray = response.split("**");
-    let newResponse = "";
 
+    let newResponse = "";
     for (let i = 0; i < responseArray.length; i++) {
-      if (i === responseArray.length - 1 && responseArray[i] === "") {
-        // Skip if the last element is empty
-        continue;
-      }
-      if (i === 0 || i % 2 === 0) {
+      if (i === 0 || i % 2 !== 1) {
         newResponse += responseArray[i];
       } else {
         newResponse += "<b>" + responseArray[i] + "</b>";
