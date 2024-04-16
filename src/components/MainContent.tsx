@@ -13,7 +13,8 @@ const MainContent = () => {
     useContext(context);*/
   const ctx = useContext(context);
   const input = ctx?.input ?? "";
-  const setInput = ctx?.setInput;
+  const setInput: React.Dispatch<React.SetStateAction<string>> =
+    ctx?.setInput ?? (() => {});
   const output = ctx?.output ?? "";
   const showResult = ctx?.showResult ?? false;
   const loading = ctx?.loading ?? false;
