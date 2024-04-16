@@ -10,11 +10,32 @@ const ContextProvider = (props) => {
   const [showResult, setShowResult] = useState(false);
   const [loading, setLoading] = useState(false);
   const [resultData, setResultData] = useState("");
-  const onSnet = async (prompt) => {
-    await runChat(prompt);
+  const onSent = async (prompt: string) => {
+    setResultData("");
+    setLoading(true);
+    setShowResult(true);
+    setOutput(input);
+    const response = await runChat(input);
+    setResultData(response);
+    setLoading(false);
+    setInput("");
   };
 
-  const contextValue = {};
+  const contextValue = {
+    input,
+    setInput,
+    output,
+    setOutput,
+    history,
+    setHistory,
+    showResult,
+    setShowResult,
+    loading,
+    setLoading,
+    resultData,
+    setResultData,
+    onSent,
+  };
 
   return (
     <context.Provider value={contextValue}>{props.children}</context.Provider>
