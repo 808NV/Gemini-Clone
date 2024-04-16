@@ -19,3 +19,22 @@ body {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.loading-anim > hr {
+  background: linear-gradient(to right, #9ed7ff, #ffffff, #9ed7ff);
+  background-size: 800px 50px;
+  animation: loader 3s infinite linear;
+}
+
+@keyframes loader {
+  0% {
+    background-position: -800px 0px;
+  }
+  100% {
+    background-position: 800px 0px;
+  }
+}
