@@ -9,8 +9,16 @@ import { VscSend } from "react-icons/vsc";
 import { context } from "../context/Context";
 
 const MainContent = () => {
-  const { onSent, output, showResult, loading, resultData, setInput, input } =
-    useContext(context);
+  /*const { onSent, output, showResult, loading, resultData, setInput, input } =
+    useContext(context);*/
+  const ctx = useContext(context);
+  const input = ctx?.input ?? "";
+  const setInput = ctx?.setInput;
+  const output = ctx?.output ?? "";
+  const showResult = ctx?.showResult ?? false;
+  const loading = ctx?.loading ?? false;
+  const resultData = ctx?.resultData ?? "";
+  const onSent = ctx?.onSent ?? (() => {});
   return (
     <div className="flex-1 min-h-[100vh] pb-[15vh] relative">
       <nav className="flex items-center justify-between text-xl p-[20px] text-[#585858]">

@@ -9,7 +9,11 @@ import { context } from "../context/Context";
 
 const Sidebar = () => {
   const [extendBar, setExtendBar] = useState(false);
-  const { onSent, history, setHistory } = useContext(context);
+  /*const { onSent, history, setHistory } = useContext(context);*/
+  const ctx = useContext(context);
+  const onSent = ctx?.onSent ?? (() => {});
+  const history = ctx?.history ?? [];
+  const setHisory = ctx?.setHistory ?? [];
 
   const toggleBar = () => {
     setExtendBar(!extendBar);

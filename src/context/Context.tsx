@@ -1,12 +1,28 @@
-import { createContext, useState } from "react";
+import React, { createContext, useState } from "react";
 import runChat from "../config/gemini";
 
-export const context = createContext();
+type MyContext = {
+  onSent: (prompt: string) => Promise<void>;
+  input: string;
+  setInput: React.Dispatch<React.SetStateAction<string>>;
+  output: string;
+  setOutput: React.Dispatch<React.SetStateAction<string>>;
+  history: string[];
+  setHistory: React.Dispatch<React.SetStateAction<string[]>>;
+  showResult: boolean;
+  setShowResult: React.Dispatch<React.SetStateAction<boolean>>;
+  loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  resultData: string;
+  setResultData: React.Dispatch<React.SetStateAction<string>>;
+};
 
-const ContextProvider = (props) => {
+export const context = createContext<MyContext | null>(null);
+
+const ContextProvider = (props: { children: React.ReactNode }) => {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
-  const [history, setHistory] = useState([]);
+  const [history, setHistory] = useState([""]);
   const [showResult, setShowResult] = useState(false);
   const [loading, setLoading] = useState(false);
   const [resultData, setResultData] = useState("");
