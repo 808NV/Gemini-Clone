@@ -15,6 +15,7 @@ const Sidebar = () => {
   const history = ctx?.history ?? [];
   const setHistory: React.Dispatch<React.SetStateAction<string[]>> =
     ctx?.setHistory ?? (() => {});
+  const newChat = ctx?.newChat ?? (() => {});
 
   const loadPrompt = async (prompt: string | string[]) => {
     if (typeof prompt === "string") {
@@ -41,7 +42,10 @@ const Sidebar = () => {
         >
           <FiMenu size={20} />
         </button>
-        <div className="mt-[50px] inline-flex items-center gap-[10px] py-[10px] px-[15px] bg-[#e6eaf1] rounded-[50px] text-grey-100 cursor-pointer">
+        <div
+          onClick={() => newChat()}
+          className="mt-[50px] inline-flex items-center gap-[10px] py-[10px] px-[15px] bg-[#e6eaf1] rounded-[50px] text-grey-100 cursor-pointer"
+        >
           <button>
             <FaPlus size={20} color="grey" />
           </button>

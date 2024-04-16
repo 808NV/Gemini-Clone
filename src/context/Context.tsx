@@ -15,6 +15,7 @@ type MyContext = {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   resultData: string;
   setResultData: React.Dispatch<React.SetStateAction<string>>;
+  newChat: () => void;
 };
 
 export const context = createContext<MyContext | null>(null);
@@ -31,6 +32,11 @@ const ContextProvider = (props: { children: React.ReactNode }) => {
     setTimeout(() => {
       setResultData((prev) => prev + nextWord);
     }, 20 * index);
+  };
+
+  const newChat = () => {
+    setLoading(false);
+    setShowResult(false);
   };
 
   const onSent = async (prompt: string) => {
@@ -90,6 +96,7 @@ const ContextProvider = (props: { children: React.ReactNode }) => {
     resultData,
     setResultData,
     onSent,
+    newChat,
   };
 
   return (
