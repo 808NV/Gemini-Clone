@@ -12,6 +12,7 @@ body {
 #root {
   min-height: 100vh;
   display: flex;
+  animation: fadeIn 1.5s;
 }
 
 .mess {
@@ -30,11 +31,24 @@ body {
   animation: loader 3s infinite linear;
 }
 
+.fadeIn {
+  animation: fadeIn 1.5s;
+}
+
 @keyframes loader {
   0% {
     background-position: -800px 0px;
   }
   100% {
     background-position: 800px 0px;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
