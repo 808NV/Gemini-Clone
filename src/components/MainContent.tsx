@@ -87,6 +87,7 @@ const MainContent = () => {
                 </div>
               ) : (
                 <div className="text-[17px] font-light leading-[1.8]">
+                  <span dangerouslySetInnerHTML={{ __html: resultData }} />
                   {resultData}
                 </div>
               )}
