@@ -22,6 +22,7 @@ const ContextProvider = (props) => {
     setLoading(true);
     setShowResult(true);
     setOutput(input);
+    setHistory((prev) => [...prev, input]);
 
     const response = await runChat(input);
     const responseArray = response.split("**");

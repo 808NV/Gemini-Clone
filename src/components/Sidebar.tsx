@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { FaPlus } from "react-icons/fa6";
 import { LuMessageSquare } from "react-icons/lu";
 import { RiQuestionLine } from "react-icons/ri";
 import { MdHistory } from "react-icons/md";
 import { FiSettings } from "react-icons/fi";
+import { context } from "../context/Context";
 
 const Sidebar = () => {
   const [extendBar, setExtendBar] = useState(false);
+  const { onSent, history, setHistory } = useContext(context);
 
   const toggleBar = () => {
     setExtendBar(!extendBar);
@@ -31,12 +33,18 @@ const Sidebar = () => {
         {extendBar ? (
           <div className="flex flex-col">
             <p className="mt-[30px] mb-[20px]">Recent</p>
-            <div className="flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer">
-              <i>
-                <LuMessageSquare size={18} />
-              </i>
-              <p className="text-sm font-semibold">What is react...</p>
-            </div>
+            {history.map((item: string, index: number) => {
+              return (
+                <div className="flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer">
+                  <i>
+                    <LuMessageSquare size={18} />
+                  </i>
+                  <p className="text-sm font-semibold">
+                    {item.slice(0, 18)}...
+                  </p>
+                </div>
+              );
+            })}
           </div>
         ) : null}
       </div>
