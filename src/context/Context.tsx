@@ -22,7 +22,7 @@ export const context = createContext<MyContext | null>(null);
 const ContextProvider = (props: { children: React.ReactNode }) => {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
-  const [history, setHistory] = useState([""]);
+  const [history, setHistory] = useState<string[]>([]);
   const [showResult, setShowResult] = useState(false);
   const [loading, setLoading] = useState(false);
   const [resultData, setResultData] = useState("");
