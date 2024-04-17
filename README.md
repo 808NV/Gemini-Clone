@@ -1,30 +1,17 @@
-# React + TypeScript + Vite
+# Gemini AI Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a clone of Gemini AI, built using React, TypeScript, and Tailwind CSS.
 
-Currently, two official plugins are available:
+Gemini AI is a powerful AI writing assistant that helps users generate content quickly and efficiently.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Features
 
-## Expanding the ESLint configuration
+- Text Generation: Utilizes AI to generate text based on provided prompts.
+- Responsive Design: Ensures a seamless experience across various devices.
+- User-friendly Interface: Intuitive interface for easy interaction.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+# Technologies Used
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- React: JavaScript library for building user interfaces.
+- TypeScript: Adds static typing to JavaScript for enhanced development experience.
+- Tailwind CSS: Utility-first CSS framework for styling.
