@@ -24,7 +24,7 @@ const MainContent = () => {
   const onSent = ctx?.onSent ?? (() => {});
 
   const sendPrompt = () => {
-    onSent();
+    onSent(input);
   };
 
   return (
