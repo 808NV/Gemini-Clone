@@ -33,7 +33,7 @@ const MainContent = () => {
         <p>Gemini</p>
         <img
           className="w-[40px] rounded-[50%]"
-          src="/src/assets/avt.jpg"
+          src="src/assets/avt.jpg"
           alt="user icon"
         />
       </nav>
