@@ -7,10 +7,12 @@ import { TbPhotoPlus } from "react-icons/tb";
 import { BsMic } from "react-icons/bs";
 import { VscSend } from "react-icons/vsc";
 import { context } from "../context/Context";
+import TxtToAudio from "./TxtToAudio";
 
 const MainContent = () => {
   /*const { onSent, output, showResult, loading, resultData, setInput, input } =
     useContext(context);*/
+
   const ctx = useContext(context);
   const input = ctx?.input ?? "";
   const setInput: React.Dispatch<React.SetStateAction<string>> =
@@ -20,6 +22,7 @@ const MainContent = () => {
   const loading = ctx?.loading ?? false;
   const resultData = ctx?.resultData ?? "";
   const onSent = ctx?.onSent ?? (() => {});
+
   return (
     <div className="flex-1 min-h-[100vh] pb-[15vh] relative">
       <nav className="flex items-center justify-between text-xl p-[20px] text-[#585858]">
@@ -81,7 +84,7 @@ const MainContent = () => {
               />
               <span>{output}</span>
             </div>
-            <div></div>
+            {!output ? <></> : <TxtToAudio />}
             <div className="flex items-start gap-[20px]">
               <img
                 className="w-[30px]"
