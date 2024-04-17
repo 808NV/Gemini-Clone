@@ -35,7 +35,12 @@ const Sidebar = () => {
 
   return (
     <div className="min-h-[100vh] inline-flex flex-col justify-between bg-slate-100 [f0f4f9] py-[25px] px-[15px]">
-      <div>
+      <div
+        style={{
+          width: extendBar ? "200px" : "50px",
+          transition: "width 0.3s ease",
+        }}
+      >
         <button
           onClick={toggleBar}
           className="w-[20px] block m-[10px] cursor-pointer"
@@ -44,12 +49,12 @@ const Sidebar = () => {
         </button>
         <div
           onClick={() => newChat()}
-          className="mt-[50px] inline-flex items-center gap-[10px] py-[10px] px-[15px] bg-[#e6eaf1] rounded-[50px] text-grey-100 cursor-pointer"
+          className="mt-[50px] inline-flex items-center text-center gap-[10px] py-[10px] px-[15px] bg-[#e6eaf1] rounded-[50px] text-grey-100 cursor-pointer"
         >
           <button>
             <FaPlus size={20} color="grey" />
           </button>
-          {extendBar ? <p>New Chat</p> : null}
+          {extendBar ? <p>New Chat</p> : <></>}
         </div>
         {extendBar ? (
           <div className="fadeIn flex flex-col">
@@ -73,19 +78,37 @@ const Sidebar = () => {
         ) : null}
       </div>
       <div className="flex flex-col">
-        <div className="flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer ">
+        <div
+          className="flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer"
+          style={{
+            marginBottom: extendBar ? "15px" : "0px",
+            transition: "margin-bottom 0.3s ease",
+          }}
+        >
           <button>
             <RiQuestionLine size={22} />
           </button>
           {extendBar ? <p>Help</p> : null}
         </div>
-        <div className="flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer">
+        <div
+          className="flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer"
+          style={{
+            marginBottom: extendBar ? "15px" : "0px",
+            transition: "margin-bottom 0.3s ease",
+          }}
+        >
           <button>
             <MdHistory size={22} />
           </button>
           {extendBar ? <p>Activity</p> : null}
         </div>
-        <div className="flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer">
+        <div
+          className="flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer"
+          style={{
+            marginBottom: extendBar ? "15px" : "0px",
+            transition: "margin-bottom 0.3s ease",
+          }}
+        >
           <button>
             <FiSettings size={22} />
           </button>
