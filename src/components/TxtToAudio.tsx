@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { context } from "../context/Context";
 import { HiSpeakerWave } from "react-icons/hi2";
 import { GiPauseButton } from "react-icons/gi";

@@ -23,6 +23,10 @@ const MainContent = () => {
   const resultData = ctx?.resultData ?? "";
   const onSent = ctx?.onSent ?? (() => {});
 
+  const sendPrompt = () => {
+    onSent();
+  };
+
   return (
     <div className="flex-1 min-h-[100vh] pb-[15vh] relative">
       <nav className="flex items-center justify-between text-xl p-[20px] text-[#585858]">
@@ -135,7 +139,7 @@ const MainContent = () => {
                 <BsMic size={24} />
               </button>
               {input ? (
-                <button onClick={() => onSent()} className="cursor-pointer">
+                <button onClick={() => sendPrompt()} className="cursor-pointer">
                   <VscSend size={24} />
                 </button>
               ) : (
