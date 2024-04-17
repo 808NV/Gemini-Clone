@@ -2,7 +2,7 @@ import React, { createContext, useState } from "react";
 import runChat from "../config/gemini";
 
 type MyContext = {
-  onSent: (prompt: string) => Promise<void>;
+  onSent: (prompt: string | void) => void;
   input: string;
   setInput: React.Dispatch<React.SetStateAction<string>>;
   output: string;
@@ -39,7 +39,7 @@ const ContextProvider = (props: { children: React.ReactNode }) => {
     setShowResult(false);
   };
 
-  const onSent = async (prompt: string) => {
+  const onSent = async (prompt: string | void) => {
     setResultData("");
     setLoading(true);
     setShowResult(true);
@@ -54,7 +54,6 @@ const ContextProvider = (props: { children: React.ReactNode }) => {
     }
     /*setOutput(input);*/
     /*setHistory((prev) => [...prev, input]);*/
-
     /*const response = await runChat(input);*/
     const responseArray = response.split("**");
 

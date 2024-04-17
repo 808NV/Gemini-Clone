@@ -21,10 +21,10 @@ const MainContent = () => {
   const showResult = ctx?.showResult ?? false;
   const loading = ctx?.loading ?? false;
   const resultData = ctx?.resultData ?? "";
-  const onSent = ctx?.onSent ?? (() => {});
+  const onSent: (prompt: string | void) => void = ctx?.onSent ?? (() => {});
 
   const sendPrompt = () => {
-    onSent(input);
+    onSent();
   };
 
   return (
