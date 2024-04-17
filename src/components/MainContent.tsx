@@ -44,7 +44,10 @@ const MainContent = () => {
               <p>How can I help you today?</p>
             </div>
             <div className="grid grid-cols-auto-fill gap-4 p-[20px]">
-              <div className="h-[200px] p-[15px] bg-slate-100 rounded-[10px] relative cursor-pointer hover:bg-slate-200">
+              <div
+                className="h-[200px] p-[15px] bg-slate-100 rounded-[10px] relative cursor-pointer hover:bg-slate-200"
+                onClick={() => setInput("Suggest places to visit in New York")}
+              >
                 <p className="text-[#585858] text-[17px]">
                   Suggest places to visit in New York
                 </p>
@@ -52,19 +55,28 @@ const MainContent = () => {
                   <IoCompassOutline size={22} />
                 </i>
               </div>
-              <div className="h-[200px] p-[15px] bg-slate-100 rounded-[10px] relative cursor-pointer hover:bg-slate-200">
+              <div
+                className="h-[200px] p-[15px] bg-slate-100 rounded-[10px] relative cursor-pointer hover:bg-slate-200"
+                onClick={() => setInput("Explain React")}
+              >
                 <p className="text-[#585858] text-[17px]">Explain React</p>
                 <i className="p-[5px] absolute bg-white rounded-[20px] bottom-[10px] right-[10px]">
                   <FaRegLightbulb size={20} />
                 </i>
               </div>
-              <div className="h-[200px] p-[15px] bg-slate-100 rounded-[10px] relative cursor-pointer hover:bg-slate-200">
+              <div
+                className="h-[200px] p-[15px] bg-slate-100 rounded-[10px] relative cursor-pointer hover:bg-slate-200"
+                onClick={() => setInput("Write a resume")}
+              >
                 <p className="text-[#585858] text-[17px]">Write a resume</p>
                 <i className="p-[5px] absolute bg-white rounded-[20px] bottom-[10px] right-[10px]">
                   <LuPencilLine size={20} />
                 </i>
               </div>
-              <div className="h-[200px] p-[15px] bg-slate-100 rounded-[10px] relative cursor-pointer hover:bg-slate-200">
+              <div
+                className="h-[200px] p-[15px] bg-slate-100 rounded-[10px] relative cursor-pointer hover:bg-slate-200"
+                onClick={() => setInput("Improve the following code")}
+              >
                 <p className="text-[#585858] text-[17px]">
                   Improve the following code
                 </p>
