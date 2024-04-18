@@ -3,7 +3,12 @@ import { context } from "../context/Context";
 import { HiSpeakerWave } from "react-icons/hi2";
 import { GiPauseButton } from "react-icons/gi";
 
-const TxtToAudio = () => {
+type Props = {
+  theme: string;
+  setTheme: (theme: string) => void | string;
+};
+
+const TxtToAudio = ({ theme }: Props) => {
   const ctx = useContext(context);
   const resultData = ctx?.resultData ?? "";
 
@@ -44,7 +49,8 @@ const TxtToAudio = () => {
       <div className="group cursor-pointer">
         <button
           onClick={handleTogglePlayback}
-          className="flex justify-center items-center h-[50px] w-[50px] rounded-[50%] hover:bg-slate-100"
+          className="flex justify-center items-center h-[50px] w-[50px] rounded-[50%] hover:bg-slate-100 dark-hover"
+          id={theme}
         >
           {!isPlaying ? (
             <HiSpeakerWave size={30} color="grey" />
@@ -52,7 +58,10 @@ const TxtToAudio = () => {
             <GiPauseButton size={30} color="grey" />
           )}
         </button>
-        <div className="hidden group-hover:block bg-blue-100 mt-2 text-center rounded-sm absolute z-[1] px-[0.5rem]">
+        <div
+          className="hidden group-hover:block bg-blue-100 mt-2 text-center rounded-sm absolute z-[1] px-[0.5rem] dark-hover"
+          id={theme}
+        >
           {!isPlaying ? " Listen" : "Pause"}
         </div>
       </div>

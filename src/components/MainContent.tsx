@@ -14,7 +14,7 @@ type MainProps = {
   setTheme: (theme: string) => void | string;
 };
 
-const MainContent = ({ theme }: MainProps) => {
+const MainContent = ({ theme, setTheme }: MainProps) => {
   /*const { onSent, output, showResult, loading, resultData, setInput, input } =
     useContext(context);*/
 
@@ -133,7 +133,7 @@ const MainContent = ({ theme }: MainProps) => {
               />
               <span>{output}</span>
             </div>
-            {!output ? <></> : <TxtToAudio />}
+            {!output ? <></> : <TxtToAudio theme={theme} setTheme={setTheme} />}
             <div className="flex items-start gap-[20px]">
               {loading ? (
                 <img
