@@ -135,11 +135,19 @@ const MainContent = ({ theme }: MainProps) => {
             </div>
             {!output ? <></> : <TxtToAudio />}
             <div className="flex items-start gap-[20px]">
-              <img
-                className="w-[30px]"
-                src="google-gemini-icon.png"
-                alt="gemini_icon"
-              />
+              {loading ? (
+                <img
+                  className="w-[30px] animate-spin"
+                  src="google-gemini-icon.png"
+                  alt="gemini_icon"
+                />
+              ) : (
+                <img
+                  className="w-[30px]"
+                  src="google-gemini-icon.png"
+                  alt="gemini_icon"
+                />
+              )}
               {loading ? (
                 <div className="loading-anim w-full flex flex-col gap-[10px]">
                   <hr className="rounded-[4px] border-none bg-slate-50 h-[20px]" />
