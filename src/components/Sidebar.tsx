@@ -78,6 +78,7 @@ const Sidebar = ({ theme, setTheme }: SidebarProps) => {
           onClick={() => newChat()}
           className="mt-[50px] inline-flex items-center text-center gap-[10px] py-[10px] px-[15px] bg-[#e6eaf1] rounded-[50px] text-grey-100 cursor-pointer"
           id={theme}
+          style={{ backgroundColor: theme === "dark" ? "#232323" : "" }}
         >
           <button>
             <FaPlus size={20} color="grey" />
