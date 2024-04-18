@@ -36,11 +36,7 @@ const MainContent = ({ theme }: MainProps) => {
     <div className="flex-1 min-h-[100vh] pb-[15vh] relative main" id={theme}>
       <nav className="flex items-center justify-between text-xl p-[20px] text-[#585858]">
         <p style={{ color: theme === "dark" ? "white" : "" }}>Gemini</p>
-        <img
-          className="w-[40px] rounded-[50%]"
-          src="src/assets/avt.jpg"
-          alt="user icon"
-        />
+        <img className="w-[40px] rounded-[50%]" src="avt.jpg" alt="user icon" />
       </nav>
 
       <section className="max-w-[900px] m-auto">
