@@ -52,3 +52,19 @@ body {
     opacity: 1;
   }
 }
+
+/***  dark theme styles ****/
+
+.main#dark {
+  background-color: #131314;
+  color: #ffffff;
+}
+
+div#dark {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+#dark.dark-hover:hover {
+  background-color: #232323;
+}

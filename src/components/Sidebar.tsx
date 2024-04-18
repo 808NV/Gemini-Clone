@@ -6,10 +6,17 @@ import { RiQuestionLine } from "react-icons/ri";
 import { MdHistory } from "react-icons/md";
 import { FiSettings } from "react-icons/fi";
 import { context } from "../context/Context";
+import { LuMoon } from "react-icons/lu";
+import { LuSun } from "react-icons/lu";
 
-const Sidebar = () => {
+type SidebarProps = {
+  theme: string;
+  setTheme: (theme: string) => void | string;
+};
+
+const Sidebar = ({ theme, setTheme }: SidebarProps) => {
   const [extendBar, setExtendBar] = useState(false);
-  /*const { onSent, history, setHistory } = useContext(context);*/
+
   const ctx = useContext(context);
   const onSent = ctx?.onSent ?? (() => {});
   const history = ctx?.history ?? [];
@@ -34,22 +41,43 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="min-h-[100vh] inline-flex flex-col justify-between bg-slate-100 [f0f4f9] py-[25px] px-[15px]">
+    <div
+      className="min-h-[100vh] inline-flex flex-col justify-between bg-slate-100 [f0f4f9] py-[25px] px-[15px] sidebar"
+      id={theme}
+    >
       <div
         style={{
           width: extendBar ? "200px" : "50px",
           transition: "width 0.3s ease",
         }}
       >
-        <button
-          onClick={toggleBar}
-          className="w-[20px] block m-[10px] cursor-pointer"
-        >
-          <FiMenu size={20} />
-        </button>
+        <div>
+          <button
+            onClick={toggleBar}
+            className="w-[20px] block m-[10px] cursor-pointer"
+          >
+            <FiMenu size={20} />
+          </button>
+          {theme === "light" ? (
+            <button
+              onClick={() => setTheme("dark")}
+              className="w-[20px] block m-[10px] cursor-pointer"
+            >
+              <LuMoon size={20} />
+            </button>
+          ) : (
+            <button
+              onClick={() => setTheme("light")}
+              className="w-[20px] block m-[10px] cursor-pointer"
+            >
+              <LuSun size={20} />
+            </button>
+          )}
+        </div>
         <div
           onClick={() => newChat()}
           className="mt-[50px] inline-flex items-center text-center gap-[10px] py-[10px] px-[15px] bg-[#e6eaf1] rounded-[50px] text-grey-100 cursor-pointer"
+          id={theme}
         >
           <button>
             <FaPlus size={20} color="grey" />
@@ -63,7 +91,8 @@ const Sidebar = () => {
               return (
                 <div
                   onClick={() => loadPrompt(item)}
-                  className="fadeIn flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer"
+                  className="fadeIn flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer dark-hover"
+                  id={theme}
                 >
                   <i>
                     <LuMessageSquare size={18} />
@@ -79,7 +108,8 @@ const Sidebar = () => {
       </div>
       <div className="flex flex-col">
         <div
-          className="flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer"
+          id={theme}
+          className="flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer dark-hover"
           style={{
             marginBottom: extendBar ? "15px" : "0px",
             transition: "margin-bottom 0.3s ease",
@@ -91,7 +121,8 @@ const Sidebar = () => {
           {extendBar ? <p>Help</p> : null}
         </div>
         <div
-          className="flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer"
+          id={theme}
+          className="flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer dark-hover"
           style={{
             marginBottom: extendBar ? "15px" : "0px",
             transition: "margin-bottom 0.3s ease",
@@ -103,7 +134,8 @@ const Sidebar = () => {
           {extendBar ? <p>Activity</p> : null}
         </div>
         <div
-          className="flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer"
+          id={theme}
+          className="flex items-center gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] hover:bg-slate-200 cursor-pointer dark-hover"
           style={{
             marginBottom: extendBar ? "15px" : "0px",
             transition: "margin-bottom 0.3s ease",

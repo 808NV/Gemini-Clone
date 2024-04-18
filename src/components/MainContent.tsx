@@ -9,7 +9,12 @@ import { VscSend } from "react-icons/vsc";
 import { context } from "../context/Context";
 import TxtToAudio from "./TxtToAudio";
 
-const MainContent = () => {
+type MainProps = {
+  theme: string;
+  setTheme: (theme: string) => void | string;
+};
+
+const MainContent = ({ theme }: MainProps) => {
   /*const { onSent, output, showResult, loading, resultData, setInput, input } =
     useContext(context);*/
 
@@ -28,9 +33,9 @@ const MainContent = () => {
   };
 
   return (
-    <div className="flex-1 min-h-[100vh] pb-[15vh] relative">
+    <div className="flex-1 min-h-[100vh] pb-[15vh] relative main" id={theme}>
       <nav className="flex items-center justify-between text-xl p-[20px] text-[#585858]">
-        <p>Gemini</p>
+        <p style={{ color: theme === "dark" ? "white" : "" }}>Gemini</p>
         <img
           className="w-[40px] rounded-[50%]"
           src="src/assets/avt.jpg"
@@ -49,42 +54,74 @@ const MainContent = () => {
             </div>
             <div className="grid grid-cols-auto-fill gap-4 p-[20px]">
               <div
-                className="h-[200px] p-[15px] bg-slate-100 rounded-[10px] relative cursor-pointer hover:bg-slate-200"
+                id={theme}
+                className="h-[200px] p-[15px] bg-slate-100 rounded-[10px] relative cursor-pointer hover:bg-slate-200 dark-hover"
                 onClick={() => setInput("Suggest places to visit in New York")}
               >
-                <p className="text-[#585858] text-[17px]">
+                <p
+                  className="text-[#585858] text-[17px]"
+                  style={{ color: theme === "dark" ? "white" : "" }}
+                >
                   Suggest places to visit in New York
                 </p>
-                <i className="p-[5px] absolute bg-white rounded-[20px] bottom-[10px] right-[10px]">
+                <i
+                  className="p-[5px] absolute bg-white rounded-[20px] bottom-[10px] right-[10px]"
+                  style={{ background: theme === "dark" ? "black" : "" }}
+                >
                   <IoCompassOutline size={22} />
                 </i>
               </div>
               <div
-                className="h-[200px] p-[15px] bg-slate-100 rounded-[10px] relative cursor-pointer hover:bg-slate-200"
+                id={theme}
+                className="h-[200px] p-[15px] bg-slate-100 rounded-[10px] relative cursor-pointer hover:bg-slate-200 dark-hover"
                 onClick={() => setInput("Explain React")}
               >
-                <p className="text-[#585858] text-[17px]">Explain React</p>
-                <i className="p-[5px] absolute bg-white rounded-[20px] bottom-[10px] right-[10px]">
+                <p
+                  className="text-[#585858] text-[17px]"
+                  style={{ color: theme === "dark" ? "white" : "" }}
+                >
+                  Explain React
+                </p>
+                <i
+                  className="p-[5px] absolute bg-white rounded-[20px] bottom-[10px] right-[10px]"
+                  style={{ background: theme === "dark" ? "black" : "" }}
+                >
                   <FaRegLightbulb size={20} />
                 </i>
               </div>
               <div
-                className="h-[200px] p-[15px] bg-slate-100 rounded-[10px] relative cursor-pointer hover:bg-slate-200"
+                id={theme}
+                className="h-[200px] p-[15px] bg-slate-100 rounded-[10px] relative cursor-pointer hover:bg-slate-200 dark-hover"
                 onClick={() => setInput("Write a resume")}
               >
-                <p className="text-[#585858] text-[17px]">Write a resume</p>
-                <i className="p-[5px] absolute bg-white rounded-[20px] bottom-[10px] right-[10px]">
+                <p
+                  className="text-[#585858] text-[17px]"
+                  style={{ color: theme === "dark" ? "white" : "" }}
+                >
+                  Write a resume
+                </p>
+                <i
+                  className="p-[5px] absolute bg-white rounded-[20px] bottom-[10px] right-[10px]"
+                  style={{ background: theme === "dark" ? "black" : "" }}
+                >
                   <LuPencilLine size={20} />
                 </i>
               </div>
               <div
-                className="h-[200px] p-[15px] bg-slate-100 rounded-[10px] relative cursor-pointer hover:bg-slate-200"
+                id={theme}
+                className="h-[200px] p-[15px] bg-slate-100 rounded-[10px] relative cursor-pointer hover:bg-slate-200 dark-hover"
                 onClick={() => setInput("Improve the following code")}
               >
-                <p className="text-[#585858] text-[17px]">
+                <p
+                  className="text-[#585858] text-[17px]"
+                  style={{ color: theme === "dark" ? "white" : "" }}
+                >
                   Improve the following code
                 </p>
-                <i className="p-[5px] absolute bg-white rounded-[20px] bottom-[10px] right-[10px]">
+                <i
+                  className="p-[5px] absolute bg-white rounded-[20px] bottom-[10px] right-[10px]"
+                  style={{ background: theme === "dark" ? "black" : "" }}
+                >
                   <PiCode size={20} />
                 </i>
               </div>
@@ -123,7 +160,10 @@ const MainContent = () => {
         )}
 
         <div className="absolute bottom-0 w-[100%] max-w-[900px] py-0 px-[20px] m-auto">
-          <div className="flex items-center justify-between gap-[20px] bg-slate-100 py-[10px] px-[20px] rounded-[50px]">
+          <div
+            className="flex items-center justify-between gap-[20px] bg-slate-100 py-[10px] px-[20px] rounded-[50px]"
+            id={theme}
+          >
             <input
               onChange={(e) => setInput(e.target.value)}
               value={input}
