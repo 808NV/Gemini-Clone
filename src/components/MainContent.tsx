@@ -137,7 +137,7 @@ const MainContent = ({ theme }: MainProps) => {
             <div className="flex items-start gap-[20px]">
               <img
                 className="w-[30px]"
-                src="src/assets/google-gemini-icon.png"
+                src="google-gemini-icon.png"
                 alt="gemini_icon"
               />
               {loading ? (
