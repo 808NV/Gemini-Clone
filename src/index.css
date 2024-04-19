@@ -68,3 +68,20 @@ div#dark {
 #dark.dark-hover:hover {
   background-color: #232323;
 }
+
+/***** responsive ******/
+
+@media (max-width: 600px) {
+  .input {
+    flex: none;
+    width: 150px;
+  }
+
+  .sidebar {
+    padding: 15px 5px;
+  }
+
+  .input-icons {
+    padding: 5px 10px;
+  }
+}

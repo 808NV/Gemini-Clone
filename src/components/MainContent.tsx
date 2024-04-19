@@ -171,11 +171,11 @@ const MainContent = ({ theme, setTheme }: MainProps) => {
             <input
               onChange={(e) => setInput(e.target.value)}
               value={input}
-              className="flex-1 bg-transparent border-none outline-none p-[10px] text-lg"
+              className="input flex-1 bg-transparent border-none outline-none p-[10px] text-lg"
               type="text"
               placeholder="Enter a prompt here"
             />
-            <div className="flex items-center gap-[15px]">
+            <div className="input-icons flex items-center gap-[15px]">
               <button className="cursor-pointer">
                 <TbPhotoPlus size={24} />
               </button>
